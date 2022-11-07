@@ -21,5 +21,6 @@ from apps.usuario.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('usuario', include('apps.usuario.urls', namespace='usuario'))
+    path('usuario', include('apps.usuario.urls', namespace='usuario')),
+    path('vianda/', include('apps.vianda.urls',namespace='vianda')),
 ]

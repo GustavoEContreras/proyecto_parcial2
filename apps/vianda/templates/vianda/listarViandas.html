@@ -1,0 +1,36 @@
+{% extends "base/base.html" %}
+{% block titulo %}Listado de viandas{% endblock %}
+{% block contenido %}
+    <h1>Listado de viandas</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Codigo</th>
+            <th>Usuario</th>
+            <th>Frecuencia</th>
+            <th>Tipo de menu</th>
+            <th>Fecha de inicio de pedido</th>
+            <th>Cantidad de viandas</th>
+            <th>Estado</th>
+            <th>Tipo/s de plato/s</th>
+        </tr>
+        {% for vianda in viandas %}
+            <tr>
+              <td>{{ vianda.id }}</td>
+                <td>{{ user.get_full_name }}</td>
+                <td>{{vianda.frecuencia}}</td>
+                <td>{{vianda.tipoMenu}}</td>
+                <td>{{vianda.fechaInicioPedidoVianda}}</td>
+                <td>{{vianda.cantidadViandas}}</td>
+                <td>{{vianda.estado}}</td>
+              <td>
+                  <ul>
+                  {% for tipo in vianda.tipoPlato.all %}
+                    <li>{{ tipo }}</li>
+                  {% endfor %}
+                </ul>
+              </td>
+            </tr>
+        {% endfor %}
+   </table>
+{% endblock %}

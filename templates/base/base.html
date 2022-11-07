@@ -16,10 +16,10 @@
                   <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"><a href="/">Index</a></li>
                    {% if user.is_authenticated %}
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">XXX</a>
+                        <a href="" class="dropbtn">XXX</a>
                         <div class="dropdown-content">
-                          <a href="">Listar</a>
-                          <a href="">Crear</a>
+                          <a href="{% url 'vianda:listarViandas' %}">Listar</a>
+                          <a href="{% url 'vianda:registrarVianda' %}">Crear</a>
                         </div>
                     </li>
                     {% endif %}
@@ -38,5 +38,12 @@
                 <p><strong>@Programación 3 - Ingenieria en Informatica - FTyCAps</strong></p>
             </footer>
         </div>
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                alert("{{message}}");
+            </script>
+        {% endfor %}
+    {% endif %}
     </body>
 </html>

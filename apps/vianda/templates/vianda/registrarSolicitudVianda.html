@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+{% block titulo %}Registrar solicitud de vianda{% endblock %}
+{% block contenido %}
+    <h1>Registrar solicitud de vianda</h1>
+    <hr>
+    {% if msj %}
+        <div>{{ msj }}</div>
+    {% endif %}
+    <form action="{% url 'vianda:registrarVianda' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Registrar">
+    </form>
+{% endblock %}
