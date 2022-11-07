@@ -24,7 +24,7 @@ def registrarVianda(request):
             vianda_form.save_m2m()  # Al haber realizado un save con el atributo commit=False, es necesario invocar a esta función para almacenar el campo many to many (tipoPlato) incluido en la vianda
             messages.success(request,
                              'Se ha agregado correctamente la solicitud de vianda {}'.format(nueva_vianda))
-            return redirect(reverse('usuario:index'))
+            return redirect(reverse('index'))
     else:
         vianda_form = ViandaForm()  # Si se va a completar el formulario
 
